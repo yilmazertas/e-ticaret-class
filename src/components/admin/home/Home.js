@@ -1,3 +1,4 @@
+////admin panelindeki home componenti
 import React from 'react'
 
 const Home = () => {

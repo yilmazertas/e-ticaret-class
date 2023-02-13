@@ -1,3 +1,4 @@
+//// admin sayfası
 import React from 'react'
 
 const Admin = () => {

@@ -1,3 +1,4 @@
+////şifre resetleme sayfası
 import React from 'react'
 
 const Reset = () => {

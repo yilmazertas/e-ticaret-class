@@ -1,3 +1,4 @@
+//// kargolama ve fatura adres kaydı yönetiminin yapıldığı redux
 import { createSlice } from '@reduxjs/toolkit'
 
 const initialState = {

@@ -1,3 +1,4 @@
+//// bu sayfa myorders sayfasından checkout a tıkladığımızda gelen, checkoutdetails componentidir. içinde adres inputları ve checkoutsummary yer alır.
 import React from 'react'
 
 const CheckoutDetails = () => {

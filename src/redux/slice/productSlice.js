@@ -1,3 +1,4 @@
+//// product ların yönetildiği redux. Burada home da sergilenecek productların kayıtlarıyla alakalı işlemler yürütülecek
 import { createSlice } from '@reduxjs/toolkit'
 
 const initialState = {

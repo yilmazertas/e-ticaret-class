@@ -1,3 +1,4 @@
+//// giriş yapan kullanıcı bilgisini yöneten redux
 import { createSlice } from '@reduxjs/toolkit'
 
 const initialState = {

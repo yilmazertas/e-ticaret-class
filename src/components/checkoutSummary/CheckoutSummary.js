@@ -1,3 +1,4 @@
+//// cart sayfasından checkout sayfasına ulaştığımızda sağ tarafta görünen checkout summary componenti. Proceed to checkout yaptığımızda solda tekrar görünür.
 import React from 'react'
 
 const CheckoutSummary = () => {

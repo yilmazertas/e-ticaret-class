@@ -1,3 +1,4 @@
+//// alışveriş sepeti (cart) sayfası
 import React from 'react'
 
 const Cart = () => {

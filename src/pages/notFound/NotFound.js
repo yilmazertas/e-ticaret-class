@@ -1,3 +1,4 @@
+//// sayfa bulunamadığında yönlendirilecek kısım
 import React from 'react'
 
 const NotFound = () => {

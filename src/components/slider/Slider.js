@@ -1,3 +1,4 @@
+//// home sayfasındaki slider i yapacağımız yer
 import React from 'react'
 
 const Slider = () => {

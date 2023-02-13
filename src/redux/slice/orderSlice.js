@@ -1,3 +1,4 @@
+//// order (sipariş) miktarı ve durumlarının yönetldiği redux
 import { createSlice } from '@reduxjs/toolkit'
 
 const initialState = {

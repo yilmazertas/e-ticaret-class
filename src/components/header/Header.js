@@ -1,3 +1,4 @@
+//// tüm linklerin olduğu başlık kısmı
 import React from 'react'
 
 const Header = () => {

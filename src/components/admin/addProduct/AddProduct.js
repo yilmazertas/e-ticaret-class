@@ -1,3 +1,4 @@
+//// admin panelindeki add product componenti
 import React from 'react'
 
 const AddProduct = () => {

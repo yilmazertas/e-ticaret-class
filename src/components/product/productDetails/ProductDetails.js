@@ -1,3 +1,4 @@
+//// home sayfasındaki ürünlere tıkladığımızda çıkan product details componenti
 import React from 'react'
 
 const ProductDetails = () => {

@@ -1,3 +1,4 @@
+////admin panelindeki sol navbar
 import React from 'react'
 
 const Navbar = () => {

@@ -1,3 +1,4 @@
+////admin panelindeki orders componenti
 import React from 'react'
 
 const Orders = () => {
