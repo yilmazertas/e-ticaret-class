@@ -1,43 +1,47 @@
 .navbar {
-    border-right: 1px solid #ccc;
-    min-height: 80vh;
-  
-    .user {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
-      padding: 4rem;
-      background-color: var(--light-blue);
-  
-      h4 {
-        color: #fff;
-      }
-    }
-  
-    nav ul {
-      li {
-        border-bottom: 1px solid #ccc;
-        padding: 1rem;
-        position: relative;
-        a {
-          display: block;
-          width: 100%;
-        }
-      }
+  border-right: 1px solid #ccc;
+  min-height: 80vh;
+
+  .user {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 4rem;
+    background-color: var(--light-blue);
+
+    h4 {
+      color: #fff;
     }
   }
-  
-  .active {
-    cursor: pointer;
+
+  // position relative, çünkü alttaki position absolute olan active classına anchor olması gerek ki ona bağımlı olsun
+  //  a ları block yapıyor ki alt alta görünsün
+  nav ul {
+    li {
+      border-bottom: 1px solid #ccc;
+      padding: 1rem;
+      position: relative;
+      a {
+        display: block;
+        width: 100%;
+      }
+    }
   }
-  
-  .active::before {
-    content: "";
-    position: absolute;
-    right: 0;
-    top: 0;
-    width: 4px;
-    height: 100%;
-    background-color: orangered;
-  }
+}
+
+// linklere normalde cursor ataması yapılıyor. Browser tarafından yapılmazsa diye, yazılmasa da olur.
+.active {
+  cursor: pointer;
+}
+
+// active den ayrı bir element oluşturup üzerine yerleştirmek için before kullanılmış,after de kullanılabilirdi. Maksat başka bir elemente gerek kalmadan kırmızı çizgiyi üzerine yerleştirmek
+.active::before {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 4px;
+  height: 100%;
+  background-color: orangered;
+}

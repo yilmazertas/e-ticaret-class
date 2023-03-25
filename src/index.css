@@ -303,8 +303,8 @@ p {
 }
 .--btn-secondary {
   color: #fff;
-  border: 1px solid #fff;
-  background: transparent;
+  border: 1px solid #777;
+  background:#999
 }
 .--btn-danger {
   color: #fff;

@@ -1,4 +1,6 @@
-.grid {
+  // grid modundaki product cardları
+  // resim ve yazıyı kapsıyor. resimden sonra border-bottom var content kısmı alttan sıfırlayarak başlamış
+  .grid {
     width: 24rem;
     background-color: #fff;
     margin: 5px;
@@ -18,6 +20,7 @@
         cursor: pointer;
       }
     }
+    // resimin altındaki tüm içerik grid classının sol altına sıfırlanmış
     .content {
       text-align: center;
       position: absolute;
@@ -46,6 +49,8 @@
     }
   }
   
+  //list modundaki product cardları
+  //yanyana diziliş için flex moduna geçmiş
   .list {
     width: 100%;
     height: 28rem;
@@ -68,7 +73,7 @@
         cursor: pointer;
       }
     }
-  
+    //list modundaki resim harici içerikler kendi içinde flex-column halde alt alta
     .content {
       position: relative;
       padding: 1rem;
@@ -85,6 +90,7 @@
           color: var(--color-danger);
         }
       }
+      //button sol alt köşede
       button {
         position: absolute;
         bottom: 1rem;
