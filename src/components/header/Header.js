@@ -42,7 +42,7 @@ const cart=(
       <div className={styles.header}>
         {logo}
         <nav className={showMenu ? `${styles["show-nav"]}`:`${styles["hide-nav"]}`}>
-          <div className={showMenu ? `${styles["nav-Wrapper"]}
+          <div className={showMenu ? `${styles["nav-wrapper"]}
           ${styles["show-nav-wrapper"]}` : `${styles["nav-wrapper"]}`} onClick={hideMenu}></div>
           <ul onClick={hideMenu}>
             <li className ={styles["logo-mobile"]}>
