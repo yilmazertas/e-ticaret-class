@@ -2,7 +2,7 @@
 // firebase ile etkileşime geçildi
 import { initializeApp } from "firebase/app";
 // authenticaation işlemleri için(kullanıcı kaydı)
-import { getAuth } from "firebase/auth;"
+import { getAuth } from "firebase/auth";
 // firestore database erişimi için
 import {getFirestore} from "firebase/firestore";
 // storage erişimi için (resim kayıt yeri)
