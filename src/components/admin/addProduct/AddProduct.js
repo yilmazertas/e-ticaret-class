@@ -3,8 +3,11 @@ import React, { useState } from 'react'
 import styles from "./AddProduct.module.scss"
 import Card from  "../../card/Card"
 import { ref, uploadBytesResumable,getDownloadURL } from "firebase/storage";
-import {storage} from "../../../firebase/config"
+import {db, storage} from "../../../firebase/config"
 import { toast } from 'react-toastify';
+import { Timestamp, addDoc, collection, } from 'firebase/firestore';
+import Loader from "../../loader/Loader"
+import { useNavigate } from 'react-router-dom';
 
 const categories=[
   {id:1,name:"Laptop"},
@@ -13,17 +16,23 @@ const categories=[
   {id:4,name:"Phone"}
 ]
 const AddProduct = () => {
-  const [product,setProduct]=useState({
+  const initialState = {
     name:"",
     imageURL:"",
     price:0,
     category:"",
     brand:"",
     desc:"",
+  }
+  const [product,setProduct]=useState({
+    ...initialState
 
   })
    
   const [uploadProgress,setUploadProgress]=useState(0)
+   const [isLoading,setIsloading] =useState(false)
+
+   const navigate = useNavigate();
   const handleInputChange = (e) => {
     const {name,value} =e.target;
       setProduct({...product,[name] : value})
@@ -60,9 +69,32 @@ const AddProduct = () => {
    
   const addProduct=(e) =>{
     e.preventDefault();
-    console.log(product)
+    // console.log(product)
+      setIsloading(true)
+     try{
+      addDoc(collection(db,"products"),{
+       name:product.name,
+       imageURL:product.imageURL,
+       price:Number(product.price),
+       category:product.brand,
+       desc:product.desc,
+       createdAt:Timestamp.now().toDate()
+
+      })
+      setIsloading(false)
+      setUploadProgress(0)
+      setProduct(...initialState)
+      toast.success("Product uploaded successfully")
+      navigate("/admin/all-products")
+     } 
+     catch(error) {
+      setIsloading(false)
+      toast.error(error.massage)
+     }
   }
   return (
+    <>
+     {isLoading && <Loader/>}
     <div className={styles.product}>
       <h2>Add New Product</h2>
       <Card cardClass={styles.card}>
@@ -70,7 +102,7 @@ const AddProduct = () => {
            <label>Product name:</label>
            <input type="text" placeholder="Product name" required name="name" value={product.name} onChange={(e)=>
            handleInputChange(e)}/>
-           <lable>Product image:</lable>
+           <label>Product image:</label>
            <Card cardClass={styles.group}>
               {uploadProgress=== 0 ? null :(<div className={styles.progress} >
                  <div className={styles["progress-bar"]} style={{width:`${uploadProgress}%`}}>{uploadProgress < 100 ? `Uploading ${uploadProgress}%` : `Upload Complete ${uploadProgress}%`}
@@ -87,18 +119,19 @@ const AddProduct = () => {
             <label>Product Price:</label>
               <input type="number" placeholder="Product Price" required name="price" value={product.price} onChange={(e)=>handleInputChange(e)}/>
               <label>Product Category:</label>
-               <select required name ="category"  value={product. category} onChange= {(e)  =>handleInputChange(e)}>
-                  <option value="" disabled>
-                   -- choose product category --
-                  </option>
-                     {categories.map((cat)=>{
-                       return (
-                          <option key={cat.id} value={cat.name}>
-                             {cat.name}
-                          </option>
-                       )
-                     })}
-                </select>
+               <select required name="category" value={product.category} onChange ={(e)=>handleInputChange(e)}>
+                <option value ="" disabled>
+                  --choose product category--
+                </option>
+                {categories.map((cat)=>{
+                  return (
+                    <option key={cat.id} value=
+                    {cat.name}>
+                    {cat.name}
+                    </option>
+                  )
+                })}
+               </select>
                 <label>Product Company/Brand:</label>
                   <input type="text" placeholder="Product brand" required name="brand" value={product.brand} onChange={(e)=>handleInputChange(e)}/>
                 <label>Product Description:</label>
@@ -107,6 +140,7 @@ const AddProduct = () => {
         </form>
       </Card>
     </div>
+    </>
   )
 }
 
