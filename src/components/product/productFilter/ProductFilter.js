@@ -27,6 +27,7 @@ const ProductFilter = () => {
      "All",
     ...new Set(products.map((product)=>product.brand))
   ]
+ 
   useEffect(()=>{
     dispatch(FILTER_BY_BRAND({products,brand}))
   },[dispatch,products,brand])
