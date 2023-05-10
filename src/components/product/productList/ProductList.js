@@ -20,7 +20,7 @@ const ProductList = ({products}) => {
 
     const [currentPage,setCurrentPage] =useState(1)
 
-    const productsPerPage=3
+    const productsPerPage=9
 
     const indexOfFirstProduct=(currentPage-1)*productsPerPage
     const indexOfLastProduct=(currentPage)*productsPerPage
