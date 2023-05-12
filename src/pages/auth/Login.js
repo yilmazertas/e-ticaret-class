@@ -10,15 +10,30 @@ import {auth} from "../../firebase/config"
 import { toast } from 'react-toastify'
 import Loader from "../../components/loader/Loader"
 import { GoogleAuthProvider } from "firebase/auth";
+import { useSelector } from 'react-redux'
+import { selectPreviouseURL } from '../../redux/slice/cartSlice'
 
 
   const Login = () => {
+
   const [email,setEmail]=useState("")
   const [password,setPassword]=useState("")
    
   const[isloading,setIsLoading]=useState(false)
 
+
+  const previousURL=useSelector(selectPreviouseURL)
+
   const navigate=useNavigate();
+
+  const redirectUser =() => {
+    if(previousURL.includes("cart")){
+      return navigate("/cart")
+    }
+    navigate("/")
+  }
+   
+
 
   const loginUser=(e)=> {
   e.preventDefault()
@@ -29,7 +44,7 @@ import { GoogleAuthProvider } from "firebase/auth";
     setIsLoading(false)
     const user = userCredential.user;
     toast.success("Login Successful...")
-    navigate("/")
+    redirectUser()
   })
   .catch((error) => {
     setIsLoading(false)
@@ -43,7 +58,7 @@ import { GoogleAuthProvider } from "firebase/auth";
   .then((result) => {
     const user = result.user;
     toast.success("Login Successfully...")
-    navigate("/")
+    redirectUser()
   }).catch((error) => {
     toast.error(error.message)
   });
