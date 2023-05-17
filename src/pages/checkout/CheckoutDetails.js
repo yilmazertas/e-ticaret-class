@@ -64,7 +64,7 @@ const CheckoutDetails = () => {
                  <input type="text" placeholder="state" required name="state" value={shippingAddress.state} onChange={(e) => handleShipping(e)}/>
                  <label>Postal Code</label>
                  <input type="text" placeholder="Postal Code" required name="postal_code" value={shippingAddress.postal_code} onChange={(e) => handleShipping(e)}/>
-                 <CountryDropdown className={styles.celect} valueType='short'value={shippingAddress.country} onChange={(val)=>handleShipping({
+                 <CountryDropdown className={styles.select} valueType='short'value={shippingAddress.country} onChange={(val)=>handleShipping({
                   target:{
                     name:"country",value:val
                   }
@@ -87,7 +87,7 @@ const CheckoutDetails = () => {
                  <input type="text" placeholder="state" required name="state" value={billingAddress.state} onChange={(e) => handleBilling(e)}/>
                  <label>Postal Code</label>
                  <input type="text" placeholder="Postal Code" required name="postal_code" value={billingAddress.postal_code} onChange={(e) => handleBilling(e)}/>
-                 <CountryDropdown className={styles.celect} valueType='short'value={billingAddress.country} onChange={(val)=>handleBilling({
+                 <CountryDropdown className={styles.select} valueType='short'value={billingAddress.country} onChange={(val)=>handleBilling({
                   target:{
                     name:"country",value:val
                   }
