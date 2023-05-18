@@ -37,12 +37,15 @@ const OrderDetails = () => {
           <br/>
           <table>
             <thead>
-              <th>s/n</th>
+              <tr>
+                <th>s/n</th>
               <th>Product</th>
               <th>Price</th>
               <th>Quantity</th>
               <th>Total</th>
               <th>Action</th>
+              </tr>
+              
             </thead>
             <tbody>
               {order.cartItems.map((cart,index)=>{

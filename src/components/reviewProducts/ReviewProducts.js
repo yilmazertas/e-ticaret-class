@@ -17,7 +17,7 @@ const ReviewProducts = () => {
   const [review,setReview] =useState("")
   const [product,setProduct] =useState(null)
   const {id} = useParams();
-  const document=useFetchDocument("product",id)
+  const document=useFetchDocument("products",id)
   const userID=useSelector(selectUserID)
   const userName= useSelector(selectUserName)
 
@@ -25,7 +25,7 @@ const ReviewProducts = () => {
 
   useEffect(()=>{
     setProduct(document)
-  },[product])
+  },[document])
 
   const SubmitReview =(e)=>{
     e.preventDefault();
