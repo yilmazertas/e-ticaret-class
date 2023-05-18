@@ -1,19 +1,18 @@
 //// my orders kısmına tıkladığınızda orderhistory açılacaktır. orderlardan herhangibirine tıkladığınızda ise order details sayfasına yönlendirir.
 import React, { useEffect, useState } from 'react'
+import { Link, useParams } from 'react-router-dom'
 import useFetchDocument from '../../customHooks/useFetchDocument';
 import styles from "./OrderDetails.module.scss"
 import spinnerImg from "../../assets/spinner.gif"
-import { Link, useParams } from 'react-router-dom';
 
 const OrderDetails = () => {
-  const [order,setOrder] =useState(null)
-  const {id} =useParams();
+  const [order,setOrder] = useState(null)
+  const {id} = useParams();
   const document = useFetchDocument("orders",id)
 
-   useEffect(()=>{
+  useEffect(()=>{
     setOrder(document);
   },[document])
-
   return (
     <section>
       <div className={`container ${styles.table}`}>
