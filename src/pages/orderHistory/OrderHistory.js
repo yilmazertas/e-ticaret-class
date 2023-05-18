@@ -3,7 +3,7 @@ import React, { useEffect } from 'react'
 import styles from "./OrderHistory.module.scss"
 import useFetchCollection from '../../customHooks/useFetchCollection'
 import { STORE_ORDERS, selectOrderHistory } from '../../redux/slice/orderSlice'
-import { selectuserID } from '../../redux/slice/authSlice'
+import { selectUserID } from '../../redux/slice/authSlice'
 import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import Loader from '../../components/loader/Loader'
@@ -14,7 +14,7 @@ const OrderHistory = () => {
 
   const orders=useSelector(selectOrderHistory)
 
-  const userID=useSelector(selectuserID)
+  const userID=useSelector(selectUserID)
   const dispatch = useDispatch();
   const navigate = useNavigate();
 

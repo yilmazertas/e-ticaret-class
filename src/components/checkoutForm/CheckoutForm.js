@@ -13,7 +13,7 @@ import CheckoutSummary from "../checkoutSummary/CheckoutSummary";
 import Card from "../card/Card";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { selectEmail, selectuserID } from "../../redux/slice/authSlice";
+import { selectEmail, selectUserID } from "../../redux/slice/authSlice";
 import { CLEAR_CART, selectCartItems, selectCartTotalAmount } from "../../redux/slice/cartSlice";
 import { selectShippingAddress } from "../../redux/slice/checkoutSlice";
 import { Timestamp, addDoc, collection } from "firebase/firestore";
@@ -30,7 +30,7 @@ const CheckoutForm = () => {
   const dispatch = useDispatch();
   const navigate= useNavigate();
 
-  const userID= useSelector(selectuserID)
+  const userID= useSelector(selectUserID)
   const userEmail =useSelector(selectEmail)
   const cartItems= useSelector(selectCartItems)
   const cartTotalAmount =useSelector(selectCartTotalAmount)
